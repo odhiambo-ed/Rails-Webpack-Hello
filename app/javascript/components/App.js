@@ -7,7 +7,7 @@ const App = () => {
     return (
         <Provider store={store}>
             <div className='container mt-3'>
-                <h1 className="text-4xl">Refresh the Get new Greetings</h1>
+                <h1 className="fs-3 text">Refresh the Get new Greetings</h1>
                 <Greeting />
             </div>
         </Provider>

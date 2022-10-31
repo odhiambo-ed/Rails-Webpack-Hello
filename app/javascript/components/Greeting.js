@@ -12,7 +12,7 @@ const Greeting = () => {
 
     return (
         <div>
-            <h1 className='font-bold text-2xl m-4 p-4'>Greeting Message: <span className='text-red-500'>{greeting}</span></h1>
+            <h1 className='font-bold m-4 p-4'>Greeting Message: <span className='text-primary'>{greeting}</span></h1>
         </div>
     )
 }
