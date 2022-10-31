@@ -2,7 +2,7 @@
 
 # Rails Webpack Hello
 
-> A simple hello world app to demonstrate a Rails-react connection with `jsbundling-rails` gem.
+> A simple hello world app to demonstrate a Rails-react connection with jsbundling-rails gem.
 
 ## Built With
 
