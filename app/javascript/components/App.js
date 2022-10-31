@@ -1,19 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store/configureStore';
-import Greeting from './Greeting';
+import React from 'react'
+import { Provider } from 'react-redux'
+import store from '../redux/configureStore'
+import Greeting from './Greeting'
 
 const App = () => {
     return (
         <Provider store={store}>
-            <Router>
-                <Routes>
-                    <Route path='/' element={<Greeting />} />
-                </Routes>
-            </Router>
+            <div className='container mt-3'>
+                <h1 className="text-4xl">Refresh the Get new Greetings</h1>
+                <Greeting />
+            </div>
         </Provider>
-    );
-};
+    )
+}
 
-export default App;
+export default App
