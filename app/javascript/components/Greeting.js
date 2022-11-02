@@ -1,20 +1,16 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchGreetingsApi } from '../redux/greetings'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getGreeting } from '../redux/greetings';
 
 const Greeting = () => {
+    const greeting = useSelector((state) => state.greetings);
     const dispatch = useDispatch();
+
     useEffect(() => {
-        dispatch(fetchGreetingsApi());
-    }, [dispatch]);
+        dispatch(getGreeting());
+    }, []);
 
-    const greeting = useSelector((state) => state.greetingsReducer);
+    return <h1>{greeting.message}</h1>;
+};
 
-    return (
-        <div>
-            <h1 className='font-bold m-4 p-4'>Greeting Message: <span className='text-primary'>{greeting}</span></h1>
-        </div>
-    )
-}
-
-export default Greeting
+export default Greeting;
