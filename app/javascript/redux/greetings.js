@@ -1,28 +1,27 @@
-import axios from 'axios';
-
 const GET_GREETING = 'rails_webpack_hello/greetings/GET_GREETING';
 
-const fetchGreetings = (payload) => ({
+const greetingFetched = (message) => ({
     type: GET_GREETING,
-    payload,
+    payload: {
+        message,
+    },
 });
 
-const initialState = [];
-
-export const fetchGreetingsApi = () => async (dispatch) => {
-    const value = await axios.get('http://127.0.0.1:3000/api/v1/greetings');
-    console.log(value)
-    const greeting = value.data.greeting
-    dispatch(fetchGreetings(greeting));
+export const getGreeting = () => (dispatch) => {
+    const URL = 'api/v1/greetings';
+    fetch(URL)
+        .then((res) => res.json())
+        .then((res) => {
+            dispatch(greetingFetched(res.data));
+        })
+        .catch((error) => console.log(error));
 };
 
-const reducer = (state = initialState, action) => {
+export default function reducer(state = [], action) {
     switch (action.type) {
         case GET_GREETING:
-            return action.payload;
+            return action.payload.message;
         default:
             return state;
     }
-};
-
-export default reducer;
+}
